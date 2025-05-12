@@ -1,0 +1,44 @@
+const names = [
+    "고영인(영인)",
+    "천사윤",
+    "임세빈",
+    "표재호",
+    "견인우",
+    "강바다",
+    "마재윤",
+    "권대도",
+    "권제원",
+    "류해든(해든)",
+    "박하운(하운)",
+    "류해든(아무개)",
+    "박하운(모)",
+    "고영인(모)",
+    "나태서(모)",
+    "윤건혁",
+    "손정훈",
+    "유인혁(쿨가이)",
+    "견인하",
+    "나연서",
+    "백건",
+    "고영인(쾌남)"
+    ];
+
+function getRandomNames() {
+    if (names.length < 2) {
+        document.getElementById("result").innerText = "2개 이상의 이름이 필요합니다.";
+        return;
+    }
+
+    const randomIndices = [];
+    while (randomIndices.length < 2) {
+        const index = Math.floor(Math.random() * names.length);
+        if (!randomIndices.includes(index)) randomIndices.push(index);
+    }
+
+    const [first, second] = randomIndices.map((index) => names[index]);
+    document.getElementById("result").innerText = `생성된 CP : ${first} x ${second}`;
+}
+
+function goToWebsite() {
+    window.location.href = "https://example.com"; // 원하는 사이트 링크로 변경
+}
