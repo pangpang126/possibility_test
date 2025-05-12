@@ -5,7 +5,7 @@ const names = [
     "윤건혁", "손정훈", "유인혁(쿨가이)", "견인하", "나연서", "백건", "고영인(쾌남)"
 ];
 
-// 각 이름에 대한 선택 확률
+
 const probabilities = [
     3.0, 3.0, 3.0, 3.0, 3.0, 
     1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
@@ -13,7 +13,6 @@ const probabilities = [
     1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0
 ];
 
-// 가중치 기반 인덱스 선택 함수
 function weightedRandomIndex(probArray) {
     const total = probArray.reduce((sum, p) => sum + p, 0);
     const rand = Math.random() * total;
