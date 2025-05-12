@@ -6,14 +6,6 @@ const names = [
     "윤건혁", "손정훈", "유인혁(쿨가이)", "견인하", "나연서", "백건", "고영인(쾌남)"
   ];
 
-  // 이름마다 대응하는 선택 확률 (원하는 가중치로 조정 가능)
-  const probabilities = [
-    5.0, 5.0, 5.0, 5.0, 5.0, 
-    1.0,1.0, 1.0, 1.0, 1.0, 1.0,
-    1.0, 1.0, 1.0, 1.0,
-    1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0
-  ];
-
 function getRandomNames() {
     if (names.length < 2) {
         document.getElementById("result").innerText = "2개 이상의 이름이 필요합니다.";
