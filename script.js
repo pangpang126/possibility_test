@@ -14,35 +14,22 @@ const names = [
     1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0
   ];
 
-  function weightedRandomIndex(probArray) {
-    const total = probArray.reduce((sum, p) => sum + p, 0);
-    const rand = Math.random() * total;
-    let cumulative = 0;
-
-    for (let i = 0; i < probArray.length; i++) {
-      cumulative += probArray[i];
-      if (rand < cumulative) return i;
-    }
-
-    return probArray.length - 1;
-  }
-
-  function getRandomNames() {
+function getRandomNames() {
     if (names.length < 2) {
-      document.getElementById("result").innerText = "2개 이상의 이름이 필요합니다.";
-      return;
+        document.getElementById("result").innerText = "2개 이상의 이름이 필요합니다.";
+        return;
     }
 
-    let firstIndex = weightedRandomIndex(probabilities);
-    let secondIndex;
-    do {
-      secondIndex = weightedRandomIndex(probabilities);
-    } while (secondIndex === firstIndex); // 중복 방지
+    const randomIndices = [];
+    while (randomIndices.length < 2) {
+        const index = Math.floor(Math.random() * names.length);
+        if (!randomIndices.includes(index)) randomIndices.push(index);
+    }
 
-    const first = names[firstIndex];
-    const second = names[secondIndex];
-
+    const [first, second] = randomIndices.map((index) => names[index]);
     document.getElementById("result").innerText = `생성된 CP : ${first} x ${second}`;
-  }
+}
 
-  }
+function goToWebsite() {
+    window.location.href = "https://example.com"; // 원하는 사이트 링크로 변경
+}
